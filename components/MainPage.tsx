@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from "react";
+// import { useState } from "react";
 
 const MainPage = () => {
-  const [layoutOptions, setLayoutOptions] = useState(1)
+  // const [layoutOptions, setLayoutOptions] = useState(1)
 
 
   const daarickStream = "https://player.kick.com/daarick"
