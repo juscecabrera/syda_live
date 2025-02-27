@@ -2,7 +2,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 
 interface LayoutSwitchProps {
-    setLayout: (prev: boolean) => void
+  setLayout: (prev: boolean) => void
 }
 
 export const LayoutSwitch:React.FC<LayoutSwitchProps> = ({ setLayout }) =>  {
