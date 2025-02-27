@@ -1,16 +1,17 @@
 'use client'
 
-// import { useState } from "react";
+import { useState } from "react";
+import { LayoutSwitch } from "./LayoutSwitch";
 
 const MainPage = () => {
-  // const [layoutOptions, setLayoutOptions] = useState(1)
+  const [layoutOptions, setLayoutOptions] = useState(false)
 
 
-  const daarickStream = "https://player.kick.com/daarick"
+  const daarickStream = "https://player.kick.com/daarick?allowfullscreen=false"
   const daarickChat = "https://kick.com/popout/daarick/chat"
 
-  const sylveeStream = `https://player.twitch.tv/?channel=sylvee&parent=${process.env.PARENT_LINK}`
-  const sylveeChat = `https://www.twitch.tv/embed/sylvee/chat?parent=${process.env.PARENT_LINK}`
+  const sylveeStream = `https://player.twitch.tv/?channel=sylvee&parent=${process.env.NEXT_PUBLIC_PARENT_LINK}`
+  const sylveeChat = `https://www.twitch.tv/embed/sylvee/chat?parent=${process.env.NEXT_PUBLIC_PARENT_LINK}`
   
   // El chat de sylvee, a la hora de hacer un raid, da error. 
   // Se arregla si se actualiza. 
@@ -19,16 +20,17 @@ const MainPage = () => {
 
   //No permite iniciar sesion en Kick pero en Twitch si
   return (
-    <div className="bg-black">
+    <div className="bg-white w-full">
+      <LayoutSwitch layout={layoutOptions} setLayout={setLayoutOptions}/>
     {/* // Layout 1: Stream izquierda, Chat derecha (streams verticales) */}
-
-        <div className='w-screen h-screen flex flex-col justify-center items-center'>
+    {layoutOptions ? (
+        <div className='w-full h-screen m-0 pt-0 flex flex-col justify-center items-center'>
           {/* Daarick */}
-          <div className="w-[80%] lg:w-full h-[45%] flex flex-row justify-center">
+          <div className="w-full lg:w-full h-full flex flex-row justify-center">
             <iframe 
               src={daarickStream} 
               allowFullScreen 
-              className="w-[39%] overflow-scroll h-[100%]"
+              className="xl:w-2/5 md:w-2/3 lg:w-1/2 h-full"
             ></iframe>
             <iframe 
               src={daarickChat} 
@@ -39,11 +41,11 @@ const MainPage = () => {
 
 
           {/* Sylvee */}
-          <div className="w-[80%] lg:w-full h-[45%] flex flex-row justify-center">
+          <div className="w-full lg:w-full h-full flex flex-row justify-center">
             <iframe 
               src={sylveeStream} 
               allowFullScreen 
-              className="w-[39%] overflow-scroll h-[100%] object-fit"
+              className="xl:w-2/5 md:w-2/3 lg:w-1/2 h-full"
             ></iframe>
             <iframe 
               src={sylveeChat} 
@@ -54,8 +56,41 @@ const MainPage = () => {
           {/* <StreamWithChat streamUrl={daarickStream} chatUrl={daarickChat}/>
           <StreamWithChat streamUrl={sylveeStream} chatUrl={sylveeChat} /> */}
         </div>
+      ) : (
+        // Layout 2: Streams arriba, Chats abajo (streams horizontales)
+        <div className="w-full h-screen flex flex-col justify-center items-center">
+          {/* Streams */}
+          <div className="w-full lg:w-full h-full flex flex-row justify-center">
+            <iframe 
+              src={daarickStream} 
+              allowFullScreen 
+              className="w-[36.5%] overflow-scroll h-full"
+            ></iframe>
+            <iframe 
+              src={sylveeStream} 
+              allowFullScreen 
+              className="w-[36.5%] overflow-scroll h-full object-fit"
+            ></iframe>
+          </div>
 
-  {/* Layout 2: Stream izquierda, Stream derecha, chats abajo (streams horizontales) */}
+          {/* Chats */}
+          <div className="w-full lg:w-full h-full flex flex-row justify-center">
+            <iframe 
+              src={daarickChat} 
+              allowFullScreen 
+              className="w-1/5 h-full"
+            ></iframe>
+            <iframe 
+              src={sylveeChat}
+              allowFullScreen 
+              className="w-1/5 h-full"
+            ></iframe>
+          </div>
+        </div>
+
+      )
+    }
+
 
     </div>
   );
