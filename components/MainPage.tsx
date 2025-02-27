@@ -21,7 +21,7 @@ const MainPage = () => {
   //No permite iniciar sesion en Kick pero en Twitch si
   return (
     <div className="bg-white w-full">
-      <LayoutSwitch layout={layoutOptions} setLayout={setLayoutOptions}/>
+      <LayoutSwitch setLayout={setLayoutOptions}/>
     {/* // Layout 1: Stream izquierda, Chat derecha (streams verticales) */}
     {layoutOptions ? (
         <div className='w-full h-screen m-0 pt-0 flex flex-col justify-center items-center'>
