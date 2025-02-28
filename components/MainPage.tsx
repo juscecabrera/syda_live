@@ -29,7 +29,7 @@ const MainPage = () => {
 // El chat de sylvee, a la hora de hacer un raid, da error. 
   // Se arregla si se actualiza. 
   // No ganas los puntos porque no te fuiste al otro stream y el chat se queda vacio porque todos se fueron al otro stream raideado
-
+//Cuando sylvee empieza directo no se actualiza solo, tienes que hacer f5. 
 
   //No permite iniciar sesion en Kick pero en Twitch si
   return (
