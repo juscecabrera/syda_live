@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { LayoutSwitch } from './LayoutSwitch';
 import { useTheme } from 'next-themes';
 import { ModeToggle } from './ModeToggle';
 import { LayoutToggle } from './LayoutToggle';
@@ -45,7 +44,7 @@ const MainPage = () => {
             <iframe
               src={daarickStream}
               allowFullScreen
-              className="xl:w-2/5 md:w-2/3 lg:w-1/2 h-full"
+              className="md:w-2/3 lg:w-3/5 h-full"
             ></iframe>
             <iframe
               src={daarickChat}
@@ -58,7 +57,7 @@ const MainPage = () => {
             <iframe
               src={sylveeStream}
               allowFullScreen
-              className="xl:w-2/5 md:w-2/3 lg:w-1/2 h-full"
+              className="md:w-2/3 lg:w-3/5 h-full"
             ></iframe>
             <iframe
               src={currentTheme === 'light' ? sylveeChat : sylveeChatDark}
@@ -75,12 +74,12 @@ const MainPage = () => {
             <iframe
               src={daarickStream}
               allowFullScreen
-              className="h-full lg:w-1/2 md:w-1/2 xl:w-2/5"
+              className="h-full lg:w-1/2 md:w-1/2 xl:w-1/2"
             ></iframe>
             <iframe
               src={sylveeStream}
               allowFullScreen
-              className="h-full lg:w-1/2 md:w-1/2 xl:w-2/5"
+              className="h-full lg:w-1/2 md:w-1/2 xl:w-1/2"
             ></iframe>
           </div>
           {/* Chats */}
