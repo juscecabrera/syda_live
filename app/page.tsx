@@ -1,10 +1,10 @@
-import MainPage from "@/components/MainPage";
-import WindowSize from "@/components/WindowSize";
+import MainPage from '@/components/MainPage';
+import WindowSizeWrapper from '@/components/WindowSizeWrapper';
 
 export default function Home() {
   return (
     <div>
-      <WindowSize />
+      <WindowSizeWrapper />
       <MainPage />
     </div>
   );

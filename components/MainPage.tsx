@@ -16,11 +16,10 @@ const MainPage = () => {
   }, []);
 
   if (!mounted) {
-    return null; // O un placeholder como <div className="w-full h-screen bg-gray-200"></div>
+    return null;
   }
 
   const daarickStream = "https://player.kick.com/daarick";
-  // const daarickStream = "https://kick.com/daarick";
   const daarickChat = "https://kick.com/popout/daarick/chat";
 
   const sylveeStream = `https://player.twitch.tv/?channel=sylvee&parent=${process.env.NEXT_PUBLIC_PARENT_LINK}&muted=false`;
@@ -32,20 +31,9 @@ const MainPage = () => {
 
 
   /*
-  Iframe con 16:9 aspect ratio
-  Para el iframe con w-36.5%, el height es 20.53%
-  Para el iframe con w-3/5, el height es 33.75%
-  Para el iframe con w-2/3, el height es 37.50%
-  
-
   Si es vertical o horizontal, tenerlo como activo en el toggle. Lo mismo con light y dark
 
-  El stream de Daarick funciona perfecto hasta lg. A partir de xl aparece el scroll y se corta
-
-  En Vertical: hasta width 1330
-  En Horizontal: hasta width 1596
-
-  Posible solucion: al pasar estos tamaños, implementar un div en cada uno para que tenga negro a los costados
+  Poder poner y quitar chat
   */
 
   return (
